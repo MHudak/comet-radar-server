@@ -18,7 +18,7 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-app.use('/admin', express.static('public/admin'));
+app.use('/', express.static('CometRadarAdmin'));
 
 app.get('/api/getRoutes', function (req, res) {
 	//res.send('Hello World!');
