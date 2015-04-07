@@ -1,0 +1,42 @@
+2015-04-06 08:38:14,625 DEBUG    root            Metrics are disabled.
+2015-04-06 08:38:14,668 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2015-04-06 08:38:14,929 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'ssh']
+2015-04-06 08:38:15,009 DEBUG    root            Running gcloud.compute.ssh with Namespace(cmd_func=<bound method Command.Run of <googlecloudsdk.calliope.backend.Command object at 0x203da50>>, command=None, command_path=['gcloud', 'compute', 'ssh'], container=None, dry_run=False, format=None, h=None, help=None, markdown=None, plain=False, project='cometsradar', quiet=None, ssh_flag=['-L3000:localhost:3000'], ssh_key_file=None, trace_token=None, user_host='mean-biej', user_output_enabled=None, verbosity=None, version=None, zone='us-central1-a').
+2015-04-06 08:38:15,010 DEBUG    root            Starting batch request...
+2015-04-06 08:38:15,010 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.InstancesService object at 0x24e7650>, 'Get', <ComputeInstancesGetRequest
+ instance: 'mean-biej'
+ project: 'cometsradar'
+ zone: 'us-central1-a'>)
+2015-04-06 08:38:15,011 DEBUG    root            Making batch request...
+2015-04-06 08:38:15,078 DEBUG    root            Error response: HttpError accessing <https://www.googleapis.com/batch>: response: <{'status': '403', 'Content-Length': '208', 'Expires': 'Mon, 06 Apr 2015 08:38:15 GMT', 'Cache-Control': 'private, max-age=0', 'Date': 'Mon, 06 Apr 2015 08:38:15 GMT', 'Content-Type': 'application/json; charset=UTF-8', 'WWW-Authenticate': 'Bearer realm="https://accounts.google.com/", error=insufficient_scope, scope="https://www.googleapis.com/auth/compute.readonly"'}>, content <{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "insufficientPermissions",
+    "message": "Insufficient Permission"
+   }
+  ],
+  "code": 403,
+  "message": "Insufficient Permission"
+ }
+}
+>
+2015-04-06 08:38:15,078 DEBUG    root            Batch request done; responses [None]
+2015-04-06 08:38:15,078 DEBUG    root            (gcloud.compute.ssh) Could not fetch instance:
+ - Insufficient Permission
+Traceback (most recent call last):
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/calliope/backend.py", line 1016, in Run
+    result = command_instance.Run(args)
+  File "/usr/local/share/google/google-cloud-sdk/lib/googlecloudsdk/compute/subcommands/ssh.py", line 78, in Run
+    external_ip_address = self.GetInstanceExternalIpAddress(instance_ref)
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/compute/lib/ssh_utils.py", line 324, in GetInstanceExternalIpAddress
+    error_message='Could not fetch instance:')
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/compute/lib/utils.py", line 76, in RaiseToolException
+    errors))
+ToolException: Could not fetch instance:
+ - Insufficient Permission
+
+2015-04-06 08:38:15,079 ERROR    root            (gcloud.compute.ssh) Could not fetch instance:
+ - Insufficient Permission
+
