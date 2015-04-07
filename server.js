@@ -1,4 +1,7 @@
+var express = require('express');
+var app = express();
 var mysql      = require('mysql');
+
 var connection = mysql.createConnection({
   host     : '69.195.124.139',
   user     : 'bsxpccom_teamX',
@@ -15,9 +18,7 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-
-var express = require('express');
-var app = express();
+app.use(express.static('public'));
 
 app.get('/api/getRoutes', function (req, res) {
 	//res.send('Hello World!');
