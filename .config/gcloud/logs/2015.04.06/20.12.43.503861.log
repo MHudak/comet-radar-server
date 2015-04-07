@@ -1,0 +1,24 @@
+2015-04-06 20:12:43,507 DEBUG    root            Metrics are disabled.
+2015-04-06 20:12:43,518 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2015-04-06 20:12:43,537 DEBUG    root            Loaded Command Group: ['gcloud', 'components', 'update']
+2015-04-06 20:12:43,538 DEBUG    root            Running gcloud.components.update with Namespace(allow_no_backup=False, architecture_override=None, cmd_func=<bound method Command.Run of <googlecloudsdk.calliope.backend.Command object at 0x3428a90>>, command_path=['gcloud', 'components', 'update'], component_ids=[], format=None, h=None, help=None, markdown=None, operating_system_override=None, project=None, quiet=None, sdk_root_override=None, snapshot_url_override=None, trace_token=None, user_output_enabled=None, verbosity=None, version=None).
+2015-04-06 20:12:43,538 DEBUG    root            (gcloud.components.update) You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/usr/local/share/google/google-cloud-sdk].
+
+Re-run the command with sudo: sudo gcloud ...
+Traceback (most recent call last):
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/calliope/backend.py", line 1016, in Run
+    result = command_instance.Run(args)
+  File "/usr/local/share/google/google-cloud-sdk/lib/googlecloudsdk/gcloud/sdktools/components/update.py", line 64, in Run
+    args.component_ids, allow_no_backup=args.allow_no_backup)
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/core/updater/update_manager.py", line 441, in Update
+    self._EnsureNotDisabled()
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/core/updater/update_manager.py", line 232, in _EnsureNotDisabled
+    config.EnsureSDKWriteAccess(self.__sdk_root)
+  File "/usr/local/bin/../share/google/google-cloud-sdk/./lib/googlecloudsdk/core/config.py", line 291, in EnsureSDKWriteAccess
+    raise exceptions.RequiresAdminRightsError(sdk_root)
+RequiresAdminRightsError: You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/usr/local/share/google/google-cloud-sdk].
+
+Re-run the command with sudo: sudo gcloud ...
+2015-04-06 20:12:43,572 ERROR    root            (gcloud.components.update) You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/usr/local/share/google/google-cloud-sdk].
+
+Re-run the command with sudo: sudo gcloud ...

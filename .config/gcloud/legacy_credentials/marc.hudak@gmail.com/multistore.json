@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "credential": {
+        "_class": "OAuth2Credentials",
+        "_module": "oauth2client.client",
+        "access_token": "ya29.TQHXgj8D6xGf36xlFEwbLJJ2SNTi8aZF1q4K5Rsk_ZfTd55Y5QTaRQii",
+        "client_id": "32555940559.apps.googleusercontent.com",
+        "client_secret": "ZmssLNjJy2998hD4CTg2ejr2",
+        "id_token": {
+          "at_hash": "tAXTkVpOAE9MhxtQjF-Ykw",
+          "aud": "32555940559.apps.googleusercontent.com",
+          "azp": "32555940559.apps.googleusercontent.com",
+          "email": "marc.hudak@gmail.com",
+          "email_verified": true,
+          "exp": 1428354753,
+          "iat": 1428351123,
+          "iss": "accounts.google.com",
+          "sub": "116886807064826692509"
+        },
+        "invalid": false,
+        "refresh_token": "1/QzSQNQej66Tw1UJHLBfo01vkdpI97fhet9Xr4ELFxV8",
+        "revoke_uri": "https://accounts.google.com/o/oauth2/revoke",
+        "token_expiry": "2015-04-06T21:12:33Z",
+        "token_response": {
+          "access_token": "ya29.TQHXgj8D6xGf36xlFEwbLJJ2SNTi8aZF1q4K5Rsk_ZfTd55Y5QTaRQii",
+          "expires_in": 3600,
+          "id_token": {
+            "at_hash": "tAXTkVpOAE9MhxtQjF-Ykw",
+            "aud": "32555940559.apps.googleusercontent.com",
+            "azp": "32555940559.apps.googleusercontent.com",
+            "email": "marc.hudak@gmail.com",
+            "email_verified": true,
+            "exp": 1428354753,
+            "iat": 1428351123,
+            "iss": "accounts.google.com",
+            "sub": "116886807064826692509"
+          },
+          "refresh_token": "1/QzSQNQej66Tw1UJHLBfo01vkdpI97fhet9Xr4ELFxV8",
+          "token_type": "Bearer"
+        },
+        "token_uri": "https://accounts.google.com/o/oauth2/token",
+        "user_agent": "Cloud SDK Command Line Tool"
+      },
+      "key": {
+        "clientId": "32555940559.apps.googleusercontent.com",
+        "scope": "https://www.googleapis.com/auth/appengine.admin https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/compute https://www.googleapis.com/auth/devstorage.full_control https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/ndev.cloudman https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/sqlservice.admin https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/projecthosting",
+        "userAgent": "Cloud SDK Command Line Tool"
+      }
+    }
+  ],
+  "file_version": 1
+}

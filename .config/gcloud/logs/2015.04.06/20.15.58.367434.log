@@ -1,0 +1,254 @@
+2015-04-06 20:15:58,368 DEBUG    root            Metrics collector initialized...
+2015-04-06 20:15:58,391 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2015-04-06 20:15:58,392 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'firewall_rules']
+2015-04-06 20:15:58,463 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'firewall-rules', 'create']
+2015-04-06 20:15:58,488 DEBUG    root            Running gcloud.compute.firewall-rules.create with Namespace(allow=['tcp:80', 'icmp', 'tcp:3000'], cmd_func=<bound method Command.Run of <googlecloudsdk.calliope.backend.Command object at 0x2a69950>>, command_path=['gcloud', 'compute', 'firewall-rules', 'create'], description=None, endpoint=None, format=None, h=None, help=None, http_timeout=None, log_http=None, markdown=None, name='nodejsrule', network='default', project=None, quiet=None, source_ranges=[], source_tags=[], target_tags=[], trace_token=None, user_output_enabled=None, verbosity=None, version=None).
+2015-04-06 20:15:58,496 DEBUG    root            Starting batch request...
+2015-04-06 20:15:58,496 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.FirewallsService object at 0x2d5ad90>, 'Insert', <ComputeFirewallsInsertRequest
+ firewall: <Firewall
+ allowed: [<AllowedValueListEntry
+ IPProtocol: 'tcp'
+ ports: ['80']>, <AllowedValueListEntry
+ IPProtocol: 'icmp'
+ ports: []>, <AllowedValueListEntry
+ IPProtocol: 'tcp'
+ ports: ['3000']>]
+ name: 'nodejsrule'
+ network: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/networks/default'
+ sourceRanges: ['0.0.0.0/0']
+ sourceTags: []
+ targetTags: []>
+ project: 'cometsradar'>)
+2015-04-06 20:15:58,497 DEBUG    root            Making batch request...
+2015-04-06 20:15:59,063 DEBUG    root            Batch request done; responses [<Operation
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(PENDING, 1)
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:15:59,064 DEBUG    root            Operations to inspect: [<Operation
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(PENDING, 1)
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:15:59,064 DEBUG    root            Starting batch request...
+2015-04-06 20:15:59,064 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.GlobalOperationsService object at 0x2d68090>, 'Get', <ComputeGlobalOperationsGetRequest
+ operation: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ project: 'cometsradar'>)
+2015-04-06 20:15:59,064 DEBUG    root            Making batch request...
+2015-04-06 20:15:59,205 DEBUG    root            Batch request done; responses [<Operation
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ status: StatusValueValuesEnum(PENDING, 1)
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:15:59,205 DEBUG    root            Sleeping for 1s.
+2015-04-06 20:16:00,206 DEBUG    root            Operations to inspect: [<Operation
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ status: StatusValueValuesEnum(PENDING, 1)
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:00,206 DEBUG    root            Starting batch request...
+2015-04-06 20:16:00,207 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.GlobalOperationsService object at 0x2d68090>, 'Get', <ComputeGlobalOperationsGetRequest
+ operation: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ project: 'cometsradar'>)
+2015-04-06 20:16:00,207 DEBUG    root            Making batch request...
+2015-04-06 20:16:00,315 DEBUG    root            Batch request done; responses [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:00,315 DEBUG    root            Sleeping for 2s.
+2015-04-06 20:16:02,317 DEBUG    root            Operations to inspect: [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:02,317 DEBUG    root            Starting batch request...
+2015-04-06 20:16:02,317 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.GlobalOperationsService object at 0x2d68090>, 'Get', <ComputeGlobalOperationsGetRequest
+ operation: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ project: 'cometsradar'>)
+2015-04-06 20:16:02,318 DEBUG    root            Making batch request...
+2015-04-06 20:16:02,406 DEBUG    root            Batch request done; responses [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:02,406 DEBUG    root            Sleeping for 3s.
+2015-04-06 20:16:05,408 DEBUG    root            Operations to inspect: [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:05,408 DEBUG    root            Starting batch request...
+2015-04-06 20:16:05,408 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.GlobalOperationsService object at 0x2d68090>, 'Get', <ComputeGlobalOperationsGetRequest
+ operation: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ project: 'cometsradar'>)
+2015-04-06 20:16:05,409 DEBUG    root            Making batch request...
+2015-04-06 20:16:05,531 DEBUG    root            Batch request done; responses [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:05,531 DEBUG    root            Sleeping for 4s.
+2015-04-06 20:16:09,532 DEBUG    root            Operations to inspect: [<Operation
+ endTime: u'2015-04-06T13:15:59.646-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 0
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:09,533 DEBUG    root            Starting batch request...
+2015-04-06 20:16:09,533 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.GlobalOperationsService object at 0x2d68090>, 'Get', <ComputeGlobalOperationsGetRequest
+ operation: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ project: 'cometsradar'>)
+2015-04-06 20:16:09,533 DEBUG    root            Making batch request...
+2015-04-06 20:16:09,607 DEBUG    root            Batch request done; responses [<Operation
+ endTime: u'2015-04-06T13:16:05.221-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 100
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(DONE, 0)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:09,607 DEBUG    root            Sleeping for 5s.
+2015-04-06 20:16:14,613 DEBUG    root            Operations to inspect: [<Operation
+ endTime: u'2015-04-06T13:16:05.221-07:00'
+ id: 6339841454532306281
+ insertTime: u'2015-04-06T13:15:58.630-07:00'
+ kind: u'compute#operation'
+ name: u'operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ operationType: u'insert'
+ progress: 100
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/operations/operation-1428351358490-51313f7565591-4a4cab35-abf0edb5'
+ startTime: u'2015-04-06T13:15:58.859-07:00'
+ status: StatusValueValuesEnum(DONE, 0)
+ targetId: 14480134030528888348L
+ targetLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ user: u'Marc.Hudak@gmail.com'
+ warnings: []>]
+2015-04-06 20:16:14,613 INFO     ___FILE_ONLY___ Created [https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule].
+
+2015-04-06 20:16:14,613 DEBUG    root            Starting batch request...
+2015-04-06 20:16:14,613 DEBUG    root            Adding request: (<googlecloudapis.compute.v1.compute_v1_client.FirewallsService object at 0x2d5ad90>, 'Get', <ComputeFirewallsGetRequest
+ firewall: u'nodejsrule'
+ project: 'cometsradar'>)
+2015-04-06 20:16:14,614 DEBUG    root            Making batch request...
+2015-04-06 20:16:14,721 DEBUG    root            Batch request done; responses [<Firewall
+ allowed: [<AllowedValueListEntry
+ IPProtocol: u'tcp'
+ ports: [u'80']>, <AllowedValueListEntry
+ IPProtocol: u'icmp'
+ ports: []>, <AllowedValueListEntry
+ IPProtocol: u'tcp'
+ ports: [u'3000']>]
+ creationTimestamp: u'2015-04-06T13:15:59.046-07:00'
+ description: u''
+ id: 14480134030528888348L
+ kind: u'compute#firewall'
+ name: u'nodejsrule'
+ network: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/networks/default'
+ selfLink: u'https://www.googleapis.com/compute/v1/projects/cometsradar/global/firewalls/nodejsrule'
+ sourceRanges: [u'0.0.0.0/0']
+ sourceTags: []
+ targetTags: []>]
+2015-04-06 20:16:14,723 INFO     ___FILE_ONLY___ NAME       NETWORK SRC_RANGES RULES                SRC_TAGS TARGET_TAGS
+2015-04-06 20:16:14,723 INFO     ___FILE_ONLY___ 
+
+2015-04-06 20:16:14,723 INFO     ___FILE_ONLY___ nodejsrule default 0.0.0.0/0  tcp:80,icmp,tcp:3000
+2015-04-06 20:16:14,724 INFO     ___FILE_ONLY___ 
+
+2015-04-06 20:16:14,728 DEBUG    root            Metrics reporting process started...
