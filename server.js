@@ -19,7 +19,7 @@ connection.connect(function(err) {
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
+app.get('/api/getRoutes', function (req, res) {
 	//res.send('Hello World!');
 	connection.query('SELECT * FROM `routes` ', function (error, results, fields) {
   // error will be an Error if one occurred during the query
