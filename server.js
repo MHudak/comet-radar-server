@@ -18,7 +18,7 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-app.use(express.static('public'));
+app.use('/admin', express.static('public/admin'));
 
 app.get('/api/getRoutes', function (req, res) {
 	//res.send('Hello World!');
