@@ -1,0 +1,3 @@
+[submodule "CometRadarAdmin"]
+	path = CometRadarAdmin
+	url = https://github.com/aftoncosta/CometRadarAdmin.git
