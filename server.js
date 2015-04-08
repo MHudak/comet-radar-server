@@ -18,13 +18,6 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-app.use('/', express.static('CometRadarAdmin'), function(req, res, next){
-  console.log("static page served?");
-    console.log(req.originalUrl); // '/admin/new'
-    console.log(req.baseUrl); // '/admin'
-    console.log(req.path); // '/new'
-});
-
 app.get('/api/getRoutes', function (req, res) {
 	//res.send('Hello World!');
 	connection.query('SELECT * FROM `routes` ', function (error, results, fields) {
@@ -34,6 +27,7 @@ app.get('/api/getRoutes', function (req, res) {
 		console.log('Error: ' + error);
 		console.log('Results: ' + results);
 
+    console.log(req.hostName); // '/admin/new'
     console.log(req.originalUrl); // '/admin/new'
     console.log(req.baseUrl); // '/admin'
     console.log(req.path); // '/new'
@@ -43,6 +37,14 @@ app.get('/api/getRoutes', function (req, res) {
 		//});
 	});	
   	
+});
+
+app.use('/', express.static('/CometRadarAdmin'), function(req, res, next){
+  console.log("static page served?");
+    console.log(req.hostName); // '/admin/new'
+    console.log(req.originalUrl); // '/admin/new'
+    console.log(req.baseUrl); // '/admin'
+    console.log(req.path); // '/new'
 });
 
 var server = app.listen(3000, function () {
