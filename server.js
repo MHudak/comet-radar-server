@@ -35,7 +35,7 @@ app.get('/api/getRoutes', function (req, res) {
   	
 });
 
-app.use(express.static(__dirname + 'CometRadarAdmin'));
+app.use(express.static(__dirname + 'admin'));
 
 var server = app.listen(3000, function () {
 
