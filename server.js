@@ -35,9 +35,7 @@ app.get('/api/getRoutes', function (req, res) {
   	
 });
 
-app.use(express.static('CometRadarAdmin'), function(req, res){
-  console.log("request for static content received");
-});
+app.use(express.static(__dirname + 'CometRadarAdmin'));
 
 var server = app.listen(3000, function () {
 
