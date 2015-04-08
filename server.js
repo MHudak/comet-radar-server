@@ -27,10 +27,6 @@ app.get('/api/getRoutes', function (req, res) {
 		console.log('Error: ' + error);
 		console.log('Results: ' + results);
 
-    console.log(req.hostName); // '/admin/new'
-    console.log(req.originalUrl); // '/admin/new'
-    console.log(req.baseUrl); // '/admin'
-    console.log(req.path); // '/new'
   		res.send(results);
   		//connection.end(function(err) {
   	// The connection is terminated now
@@ -39,13 +35,7 @@ app.get('/api/getRoutes', function (req, res) {
   	
 });
 
-app.use('/', express.static('/CometRadarAdmin'), function(req, res, next){
-  console.log("static page served?");
-    console.log(req.hostName); // '/admin/new'
-    console.log(req.originalUrl); // '/admin/new'
-    console.log(req.baseUrl); // '/admin'
-    console.log(req.path); // '/new'
-});
+app.use(express.static(__dirname + '/CometRadarAdmin'));
 
 var server = app.listen(3000, function () {
 
