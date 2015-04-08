@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/radar.png">
+
+    <title>CometRadar - Accounts</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->    
+  </head>
+  <body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="dash.html"><img src="img/cr.png"></a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="dash.html">Dashboard</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li class="dropdown" class="active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Routes <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="view-routes.html">View Routes</a></li>
+                <li><a href="delete-routes.html">Delete Routes</a></li>
+                <li><a href="add-routes.html">Add Routes</a></li>
+              </ul>
+            </li>
+            <li class="active"><a href="accounts.html">Accounts</a></li>
+            <li><a href="index.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container" style="padding-top: 30px">
+      <div class="jumbotron text-center">
+
+        <h2 class="lead">Add User</h2>
+          <input class="form-control form-center" type="text" value="Name" onclick="this.value=''"/><br/>
+        
+          <input class="form-control form-center" type="text" value="Email" onclick="this.value=''"/><br/>
+
+          <input class="form-control form-center" type="text" value="Password" onclick="this.value=''"/><br/>
+
+
+          <div class="btn-group form-center">
+            <button type="button" class="btn btn-default" id="dropdown-main">Select user type</button>
+            <button type="button" class="btn btn-default dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Driver</a></li>
+              <li><a href="#">Administrator</a></li>
+            </ul>
+          </div>
+
+          <br/><br/>
+          <button type="button" class="btn btn-default button-style"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add User</button>
+        <br/><br/>
+        </div>
+
+        <div class="jumbotron">
+        <h2 class="lead text-center">Delete Users</h2>
+
+        <div class="list-group form-center">
+          <a class="list-group-item">
+            <span class="badge"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+            Jim Cooper (Admin)
+          </a>
+          <a class="list-group-item">
+            <span class="badge"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+            Steve Gaines (Driver)
+          </a>
+          <a class="list-group-item">
+            <span class="badge"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+            Emma Young (Driver)
+          </a>
+          <a class="list-group-item">
+            <span class="badge"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+            Rachel Williams (Driver)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

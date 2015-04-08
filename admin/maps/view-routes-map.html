@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Route Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 0px;
+        margin-left: 80px;
+        z-index: 5;
+        background-color: transparent;
+        padding: 10px;
+      }
+      .btn{
+        background-color: #008542;
+        color: #fff;
+      }
+ 
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="../js/view-routes.js"></script>
+
+  </head>
+  <body>
+    <div id="panel">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default" id="dropdown-main">University Village Phase 1</button>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#" onclick="changeRoute()">McDermott Library</a></li>
+          <li><a href="#" onclick="changeRoute()">University Commons</a></li>
+          <li><a href="#" onclick="changeRoute()">University Village Phase 1</a></li>
+          <li><a href="#" onclick="changeRoute()">Rutford Avenue North-South</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="map-canvas"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>

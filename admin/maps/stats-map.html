@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heat Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        bottom: 0px;
+        z-index: 5;
+        background-color: transparent;
+        padding: 10px;
+      }
+      .btn{
+        background-color: #008542;
+        color: #fff;
+      }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="panel">
+      <button class="btn" onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button class="btn" onclick="changeGradient()">Change gradient</button>
+      <button class="btn" onclick="changeRadius()">Change radius</button>
+      <button class="btn" onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <div id="map-canvas"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/stats.js"></script>
+  </body>
+</html>
