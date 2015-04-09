@@ -98,7 +98,7 @@ app.use(passport.session());
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/admin/index.html');
+  res.redirect('/index.html');
 }
 
 //setup database connection
@@ -137,7 +137,7 @@ app.get('/api/getRoutes', function (req, res) {
 
 app.get('/', function(req, res){
   console.log("root (/) requested");
-  res.redirect('/admin/index.html');
+  res.redirect('/index.html');
 });
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
@@ -149,7 +149,7 @@ app.use(function(req, res, next){
   //passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false });
   if(req.path.localeCompare('/view-routes.html') == 0){
     console.log('view routes encountered!')
-    return res.redirect('/admin/index.html');
+    return res.redirect('/index.html');
   }
   
   return next();
