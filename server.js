@@ -155,7 +155,7 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 // });
 
 //setup static file serve for admin pages
-app.use(function(req, res){
+app.use(function(req, res, next){
   console.log(req.originalUrl); // '/admin/new'
   console.log(req.baseUrl); // '/admin'
   console.log(req.path); // '/new'
