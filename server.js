@@ -157,7 +157,7 @@ app.get(/\/admin\/.*\/.*/, function(req, res){
 //setup static file serve for admin pages
 app.use(function(req, res){
   console.log("serving static file at " + __dirname + req.originalUrl);
-}, express.static(__dirname + '/admin'));
+}, express.static(__dirname + '/admin', { redirect : false }));
 
 app.listen(3000);
 
