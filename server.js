@@ -145,14 +145,14 @@ app.get('/admin/.*/.*', function(req, res){
   res.sendFile(__dirname + req.originalUrl);
 });
 //check user authentication before serving static files
-app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), function(req, res, next) {
-  console.log("admin page requested");
-  // GET 'http://www.example.com/admin/new'
-  console.log(req.originalUrl); // '/admin/new'
-  console.log(req.baseUrl); // '/admin'
-  console.log(req.path); // '/new'
-  next();
-});
+// app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), function(req, res, next) {
+//   console.log("admin page requested");
+//   // GET 'http://www.example.com/admin/new'
+//   console.log(req.originalUrl); // '/admin/new'
+//   console.log(req.baseUrl); // '/admin'
+//   console.log(req.path); // '/new'
+//   next();
+// });
 
 //setup static file serve for admin pages
 app.use(express.static(__dirname + '/admin'));
