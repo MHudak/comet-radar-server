@@ -140,7 +140,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/admin/index.html');
 });
 
-app.get(/\/admin\/.*\/.*/, function(req, res){
+app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
   console.log("requesting additional resources at " + __dirname + req.originalUrl);
   res.sendFile(__dirname + req.originalUrl);
 });
