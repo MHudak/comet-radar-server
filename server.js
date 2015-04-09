@@ -141,7 +141,6 @@ app.get('/', function(req, res){
 });
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
-  console.log("requesting additional resources at " + __dirname + '/admin' + req.originalUrl);
   res.sendFile(__dirname + '/admin' + req.originalUrl);
 });
 //check user authentication before serving static files
@@ -157,9 +156,11 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 //setup static file serve for admin pages
 app.use(function(req, res, next){
   if(req.path.localeCompare('/view-routes.html')){
-    res.sendFile(__dirname + '/admin/index.html');
+    console.log('view routes encountered!')
+    return res.sendFile(__dirname + '/admin/index.html');
   }
-  next();
+  
+  return next();
 });
 
 app.use(express.static(__dirname + '/admin'));
