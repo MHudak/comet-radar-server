@@ -80,7 +80,7 @@ passport.use(new LocalStrategy(
 // app.use(express.session({ secret: 'keyboard cat' }));
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
-app.use(flash());
+// app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -98,7 +98,7 @@ app.use(passport.session());
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/index.html');
+  res.redirect(__dirname + '/admin/index.html');
 }
 
 //setup database connection
@@ -137,27 +137,19 @@ app.get('/api/getRoutes', function (req, res) {
 
 app.get('/', function(req, res){
   console.log("root (/) requested");
-  res.sendFile(__dirname + '/admin/index.html');
+  res.redirect(__dirname + '/admin/index.html');
 });
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
-  res.sendFile(__dirname + '/admin' + req.originalUrl);
+  res.redirect(__dirname + '/admin' + req.originalUrl);
 });
-//check user authentication before serving static files
-// app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), function(req, res, next) {
-//   console.log("admin page requested");
-//   // GET 'http://www.example.com/admin/new'
-//   console.log(req.originalUrl); // '/admin/new'
-//   console.log(req.baseUrl); // '/admin'
-//   console.log(req.path); // '/new'
-//   next();
-// });
 
 //setup static file serve for admin pages
 app.use(function(req, res, next){
+  //passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false });
   if(req.path.localeCompare('/view-routes.html') == 0){
     console.log('view routes encountered!')
-    return res.sendFile(__dirname + '/admin/index.html');
+    return res.redirect(__dirname + '/admin/index.html');
   }
   
   return next();
