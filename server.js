@@ -74,7 +74,6 @@ passport.use(new LocalStrategy(
 ));
 
 // configure Express
-app.use(express.logger());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
