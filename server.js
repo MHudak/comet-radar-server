@@ -98,7 +98,7 @@ app.use(passport.session());
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect(__dirname + '/admin/index.html');
+  res.redirect('/admin/index.html');
 }
 
 //setup database connection
@@ -137,11 +137,11 @@ app.get('/api/getRoutes', function (req, res) {
 
 app.get('/', function(req, res){
   console.log("root (/) requested");
-  res.redirect(__dirname + '/admin/index.html');
+  res.redirect('/admin/index.html');
 });
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
-  res.redirect(__dirname + '/admin' + req.originalUrl);
+  res.sendFile(__dirname + '/admin' + req.originalUrl);
 });
 
 //setup static file serve for admin pages
@@ -149,7 +149,7 @@ app.use(function(req, res, next){
   //passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false });
   if(req.path.localeCompare('/view-routes.html') == 0){
     console.log('view routes encountered!')
-    return res.redirect(__dirname + '/admin/index.html');
+    return res.redirect('/admin/index.html');
   }
   
   return next();
