@@ -142,7 +142,7 @@ app.get('/', function(req, res){
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
   console.log("requesting additional resources at " + __dirname + '/admin' + req.originalUrl);
-  res.sendFile(__dirname + req.originalUrl);
+  res.sendFile(__dirname + '/admin' + req.originalUrl);
 });
 //check user authentication before serving static files
 // app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), function(req, res, next) {
