@@ -137,11 +137,11 @@ app.get('/api/getRoutes', function (req, res) {
 
 app.get('/', function(req, res){
   console.log("root (/) requested");
-  res.sendFile('/admin/index.html');
+  res.sendFile(__dirname + '/admin/index.html');
 });
 
 //check user authentication before serving static files
-app.use('/', passport.authenticate('local', { failureRedirect: '/admin/index.html', failureFlash: true }), function(req, res, next) {
+app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: true }), function(req, res, next) {
   console.log("admin page requested");
   // GET 'http://www.example.com/admin/new'
   console.log(req.originalUrl); // '/admin/new'
