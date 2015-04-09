@@ -155,8 +155,7 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 
 //setup static file serve for admin pages
 app.use(function(req, res, next){
-  console.log(req.path);
-  if(req.path.localeCompare('/view-routes.html')){
+  if(req.path.localeCompare('/view-routes.html') == 0){
     console.log('view routes encountered!')
     return res.sendFile(__dirname + '/admin/index.html');
   }
