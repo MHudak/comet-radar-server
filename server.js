@@ -140,7 +140,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/admin/index.html');
 });
 
-app.get('/admin/.*/.*', function(req, res){
+app.get(/\/admin\/.*\/.*/, function(req, res){
   console.log("requesting additional resources at " + __dirname + req.originalUrl);
   res.sendFile(__dirname + req.originalUrl);
 });
@@ -155,7 +155,9 @@ app.get('/admin/.*/.*', function(req, res){
 // });
 
 //setup static file serve for admin pages
-app.use(passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), express.static(__dirname + '/admin'));
+app.use(function(req, res){
+  console.log("serving static file at " + __dirname + req.originalUrl);
+}, express.static(__dirname + '/admin'));
 
 app.listen(3000);
 
