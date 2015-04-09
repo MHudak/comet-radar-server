@@ -155,7 +155,7 @@ app.get('/admin/.*/.*', function(req, res){
 // });
 
 //setup static file serve for admin pages
-app.use(express.static(__dirname + '/admin'));
+app.use(passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), express.static(__dirname + '/admin'));
 
 app.listen(3000);
 
