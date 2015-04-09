@@ -137,7 +137,7 @@ app.get('/api/getRoutes', function (req, res) {
 
 app.get('/', function(req, res){
   console.log("root (/) requested");
-  req.sendFile('/admin/index.html');
+  res.sendFile('/admin/index.html');
 });
 
 //check user authentication before serving static files
