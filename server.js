@@ -141,7 +141,7 @@ app.get('/', function(req, res){
 });
 
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
-  console.log("requesting additional resources at " + __dirname + req.originalUrl);
+  console.log("requesting additional resources at " + __dirname + '/admin' + req.originalUrl);
   res.sendFile(__dirname + req.originalUrl);
 });
 //check user authentication before serving static files
