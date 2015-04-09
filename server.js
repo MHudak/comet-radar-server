@@ -140,6 +140,10 @@ app.get('/', function(req, res){
   res.redirect('/index.html');
 });
 
+app.get('/index.html', function(req, res){
+  res.sendFile(__dirname + '/admin/index.html');
+});
+
 app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
   res.sendFile(__dirname + '/admin' + req.originalUrl);
 });
