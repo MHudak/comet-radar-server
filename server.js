@@ -146,9 +146,8 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 
 //setup static file serve for admin pages
 app.use(function(req, res, next){
-  passport.ensureAuthenticated();
+  return ensureAuthenticated(req, res, next);
   
-  return next();
 });
 
 app.use(express.static(__dirname + '/admin'));
