@@ -140,8 +140,12 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/admin/index.html');
 });
 
+app.get('/admin/.*/.*', function(req, res){
+  console.log("requesting additional resources at " + __dirname + req.originalUrl);
+  res.sendFile(__dirname + req.originalUrl);
+});
 //check user authentication before serving static files
-app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: true }), function(req, res, next) {
+app.use('/', passport.authenticate('local', { failureRedirect: (__dirname + '/admin/index.html'), failureFlash: false }), function(req, res, next) {
   console.log("admin page requested");
   // GET 'http://www.example.com/admin/new'
   console.log(req.originalUrl); // '/admin/new'
