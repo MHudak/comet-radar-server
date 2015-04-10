@@ -39,11 +39,11 @@ function findByUsername(username, fn) {
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
-
+ 
 passport.deserializeUser(function(id, done) {
-  findById(id, function (err, user) {
+  User.findById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -73,22 +73,17 @@ passport.use(new LocalStrategy(
   }
 ));
 
-// configure Express
-// app.use(express.cookieParser());
-// app.use(express.bodyParser());
-// app.use(express.methodOverride());
-// app.use(express.session({ secret: 'keyboard cat' }));
-// Initialize Passport!  Also use passport.session() middleware, to support
-// persistent login sessions (recommended).
-// app.use(flash());
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
-
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 
 // Simple route middleware to ensure user is authenticated.
@@ -98,7 +93,7 @@ app.use(passport.session());
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/index.html');
+  res.redirect('/');
 }
 
 //setup database connection
@@ -116,6 +111,17 @@ connection.connect(function(err) {
   }
 
   console.log('connected as id ' + connection.threadId);
+});
+
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/dash.html',
+                                   failureRedirect: '/',
+                                   failureFlash: false })
+);
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 //setup api routes
@@ -136,8 +142,7 @@ app.get('/api/getRoutes', function (req, res) {
 });
 
 app.get('/', function(req, res){
-  console.log("root (/) requested");
-  res.redirect('/index.html');
+  res.sendFile(__dirname + '/admin/index.html');
 });
 
 app.get('/index.html', function(req, res){
@@ -148,10 +153,9 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
   res.sendFile(__dirname + '/admin' + req.originalUrl);
 });
 
-//setup static file serve for admin pages
+//require authentication for all files below this
 app.use(function(req, res, next){
   return ensureAuthenticated(req, res, next);
-  
 });
 
 app.use(express.static(__dirname + '/admin'));
