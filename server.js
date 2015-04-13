@@ -76,7 +76,7 @@ passport.use(new LocalStrategy(
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
-app.use(expressSession({secret: 'mySecretKey'}));
+//app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -141,6 +141,57 @@ app.get('/api/getRoutes', function (req, res) {
   	
 });
 
+
+//TODO move behind login wall
+app.get('/api/getRiderLocations', function (req, res) {
+  connection.query('SELECT lat,long FROM Pickup_Requests WHERE ROUTE_NAME=', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getTableNames', function (req, res) {
+  connection.query('SHOW TABLES;', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `Pickup_Requests` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/admin/index.html');
 });
@@ -154,6 +205,24 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 });
 
 //require authentication for all files below this
+
+app.get('/api/updateLocation', function (req, res) {
+  connection.query('SELECT * FROM `routes` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+
 app.use(function(req, res, next){
   return ensureAuthenticated(req, res, next);
 });
