@@ -124,27 +124,10 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-//setup api routes
-app.get('/api/getRoutes', function (req, res) {
-	connection.query('SELECT * FROM `routes` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-		console.log('Error: ' + error);
-		console.log('Results: ' + results);
-
-  		res.send(results);
-  		//connection.end(function(err) {
-  	// The connection is terminated now
-		//});
-	});	
-  	
-});
-
-
 //TODO move behind login wall
 app.get('/api/getRiderLocations', function (req, res) {
-  connection.query('SELECT lat,long FROM Pickup_Requests WHERE ROUTE_NAME=', function (error, results, fields) {
+  //TODO add date to query
+  connection.query('SELECT lat,long FROM `Pickup_Requests` WHERE ROUTE_NAME=' + req.query.rname, function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
@@ -159,8 +142,9 @@ app.get('/api/getRiderLocations', function (req, res) {
     
 });
 
-app.get('/api/getTableNames', function (req, res) {
-  connection.query('SHOW TABLES;', function (error, results, fields) {
+//TODO move behind login wall
+app.get('/api/getRoute', function (req, res) {
+  connection.query('SELECT order,lat,long FROM `route_waypoints` WHERE ROUTE_NAME=' + req.query.rname + ' ORDER BY order ASC', function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
@@ -175,102 +159,19 @@ app.get('/api/getTableNames', function (req, res) {
     
 });
 
-app.get('/api/getColumns1', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `pickup_request` ', function (error, results, fields) {
+app.get('/api/updateLocation', function (req, res) {
+  connection.query('UPDATE `current_route` SET currentLat=' + req.query.lat + ',currentLong=' + req.query.long 
+    + 'WHERE route_name=' + req.query.rname, function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
     console.log('Error: ' + error);
     console.log('Results: ' + results);
 
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
+    res.send(results);
   }); 
     
 });
-
-app.get('/api/getColumns2', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `routestops` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
-app.get('/api/getColumns3', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `routedata` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
-app.get('/api/getColumns4', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `route_waypoints` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
-app.get('/api/getColumns5', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `routes` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
-app.get('/api/getColumns6', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `current_route` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/admin/index.html');
@@ -285,23 +186,6 @@ app.get(/\/(css|fonts|img|js|maps)\/.*/, function(req, res){
 });
 
 //require authentication for all files below this
-
-app.get('/api/updateLocation', function (req, res) {
-  connection.query('SELECT * FROM `routes` ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-    console.log('Error: ' + error);
-    console.log('Results: ' + results);
-
-      res.send(results);
-      //connection.end(function(err) {
-    // The connection is terminated now
-    //});
-  }); 
-    
-});
-
 
 app.use(function(req, res, next){
   return ensureAuthenticated(req, res, next);
