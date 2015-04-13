@@ -175,8 +175,88 @@ app.get('/api/getTableNames', function (req, res) {
     
 });
 
-app.get('/api/getColumns', function (req, res) {
-  connection.query('SHOW COLUMNS FROM `Pickup_Requests` ', function (error, results, fields) {
+app.get('/api/getColumns1', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `Pickup_Request` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns2', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `routestops` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns3', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `routedata` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns4', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `route_waypoints` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns5', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `routes` ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+app.get('/api/getColumns6', function (req, res) {
+  connection.query('SHOW COLUMNS FROM `current_route` ', function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
