@@ -125,6 +125,24 @@ app.get('/logout', function(req, res){
 });
 
 //TODO move behind login wall
+app.get('/api/getInfo', function (req, res) {
+  //TODO add date to query
+  connection.query('SELECT * FROM `' + req.query.tname + '`', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+    console.log('Error: ' + error);
+    console.log('Results: ' + results);
+
+      res.send(results);
+      //connection.end(function(err) {
+    // The connection is terminated now
+    //});
+  }); 
+    
+});
+
+//TODO move behind login wall
 app.get('/api/getRiderLocations', function (req, res) {
   //TODO add date to query
   connection.query('SELECT lat,long FROM `Pickup_Requests` WHERE ROUTE_NAME=' + req.query.rname, function (error, results, fields) {
