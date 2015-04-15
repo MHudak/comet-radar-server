@@ -145,7 +145,8 @@ app.get('/api/getInfo', function (req, res) {
 //TODO move behind login wall
 app.get('/api/getRiderLocations', function (req, res) {
   //TODO add date to query
-  connection.query('SELECT lat, long FROM `pickup_request` WHERE ROUTE_NAME=\'' + req.query.rname + '\'', function (error, results, fields) {
+  //lat, long
+  connection.query('SELECT * FROM `pickup_request` WHERE ROUTE_NAME=\'' + req.query.rname + '\'', function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
@@ -162,7 +163,8 @@ app.get('/api/getRiderLocations', function (req, res) {
 
 //TODO move behind login wall
 app.get('/api/getRoute', function (req, res) {
-  connection.query('SELECT order,lat,long FROM `route_waypoints` WHERE ROUTE_NAME=\'' + req.query.rname + '\' ORDER BY order ASC', function (error, results, fields) {
+  //order,lat,long
+  connection.query('SELECT * FROM `route_waypoints` WHERE ROUTE_NAME=\'' + req.query.rname + '\' ORDER BY order ASC', function (error, results, fields) {
   // error will be an Error if one occurred during the query
   // results will contain the results of the query
   // fields will contain information about the returned results fields (if any)
